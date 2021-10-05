@@ -1,13 +1,13 @@
 import Header from './components/Header'
-import Home from './components/Home'
 import RecipeView from './components/RecipeView'
 import SearchResault from './components/SearchResault'
+
+// https://forkify-api.herokuapp.com/v2
 
 function App() {
   return (
     <div className='container'>
       <Header />
-      {/* <Home /> */}
       <SearchResault />
       <RecipeView />
     </div>
