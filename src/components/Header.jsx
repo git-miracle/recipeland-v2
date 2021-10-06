@@ -1,26 +1,14 @@
 import React from 'react'
 import logo from '../img/logo.png'
-import { FaSearch, FaEdit, FaBookmark, FaSmile } from 'react-icons/fa'
+import { FaEdit, FaBookmark, FaSmile } from 'react-icons/fa'
+import SearchRecipe from './SearchRecipe'
 
-const Header = () => {
+const Header = (props) => {
   return (
     <header className='header'>
       <img src={logo} alt='Logo' className='header__logo' />
-      <form className='search'>
-        <input
-          type='text'
-          className='search__field'
-          placeholder='Ingredient, dish, keyword...'
-        />
-        <button className='btn search__btn'>
-          <div className='search__icon'>
-            {' '}
-            <FaSearch />
-          </div>
-          <span>Search</span>
-        </button>
-      </form>
 
+      <SearchRecipe searchRecipe={props.searchRecipe} />
       <nav className='nav'>
         <ul className='nav__list'>
           <li className='nav__item'>

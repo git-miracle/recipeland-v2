@@ -1,34 +1,36 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Footer from './Footer'
 import ListItem from './ListItem'
 
-const SearchResault = () => {
-  const [recipes, setRecipe] = useState(null)
-  const [result, setResult] = useState('')
-  useEffect(() => {
-    fetch(
-      'https://forkify-api.herokuapp.com/api/v2/recipes?search=pizza'
-    )
-      .then((res) => {
-        return res.json()
-      })
-      .then((data) => {
-        // const { recipes } = data.data
-        console.log(data)
-        setResult(data.results)
-        setRecipe(data.data.recipes)
-      })
-      .catch((err) => {
-        console.log(err.message)
-      })
-  }, [])
+const SearchResault = ({ recipes, result }) => {
+  // useEffect(() => {
+  //   fetch(
+  //     `https://forkify-api.herokuapp.com/api/v2/recipes?search=${text}`
+  //   )
+  //     .then((res) => {
+  //       return res.json()
+  //     })
+  //     .then((data) => {
+  //       // const { recipes } = data.data
+  //       console.log(data)
+  //       setResult(data.results)
+  //       setRecipe(data.data.recipes)
+  //     })
+  //     .catch((err) => {
+  //       console.log(err.message)
+  //     })
+  // }, [])
+
   return (
     <div className='search-resault'>
       <ul className='results'>
-        <h2 style={{ textAlign: 'center', marginBottom: '10px' }}>
-          {' '}
-          {result} resaults found.
-        </h2>
+        {result && (
+          <h2 style={{ textAlign: 'center', marginBottom: '10px' }}>
+            {' '}
+            {result} resaults found.
+          </h2>
+        )}
+
         <li>{recipes && <ListItem recipes={recipes} />}</li>
       </ul>
 
