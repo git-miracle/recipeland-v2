@@ -6,7 +6,7 @@ import SearchResault from './components/SearchResault'
 // https://forkify-api.herokuapp.com/v2
 
 function App() {
-  const [recipes, setRecipe] = useState(null)
+  const [recipes, setRecipe] = useState([])
   const [result, setResult] = useState('')
 
   const searchRecipe = (text) => {
@@ -28,6 +28,7 @@ function App() {
       })
     //  setIsLoading(false);
   }
+
   return (
     <div className='container'>
       <Header searchRecipe={searchRecipe} />

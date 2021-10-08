@@ -16,22 +16,32 @@
   // padding: 0 3.5rem;
 }
 
+//
+.pg-container {
+  padding: 15px;
+}
 .pagination {
-  margin-top: auto;
-  padding: 0 3.5rem;
-
-  &::after {
-    content: '';
-    display: table;
-    clear: both;
-  }
-
-  &__btn {
-    &--prev {
-      float: left;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  font-size: 20px;
+  border-top: 1px solid rgba(128, 128, 128, 0.342);
+  padding: 5px;
+  li {
+    list-style: none;
+    &:not(:last-child) {
+      margin-right: 5px;
     }
-    &--next {
-      float: right;
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s;
+      padding: 3px;
+      display: block;
+    }
+    a:hover {
+      transform: scale(1.5) translateY(-3px);
+      color: red;
     }
   }
 }

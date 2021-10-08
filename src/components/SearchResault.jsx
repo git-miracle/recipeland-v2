@@ -1,26 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Footer from './Footer'
 import ListItem from './ListItem'
+import Pagination from './Pagination'
 
 const SearchResault = ({ recipes, result }) => {
-  // useEffect(() => {
-  //   fetch(
-  //     `https://forkify-api.herokuapp.com/api/v2/recipes?search=${text}`
-  //   )
-  //     .then((res) => {
-  //       return res.json()
-  //     })
-  //     .then((data) => {
-  //       // const { recipes } = data.data
-  //       console.log(data)
-  //       setResult(data.results)
-  //       setRecipe(data.data.recipes)
-  //     })
-  //     .catch((err) => {
-  //       console.log(err.message)
-  //     })
-  // }, [])
+  const [currentPage, setCurrentPage] = useState(1)
+  const [recipesPerPage, setRecipesPerPage] = useState(10)
 
+  const indexOfLastRecipe = currentPage * recipesPerPage
+  const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage
+  const currentRecipes = recipes.slice(
+    indexOfFirstRecipe,
+    indexOfLastRecipe
+  )
+  const paginate = (pageNumber) => setCurrentPage(pageNumber)
   return (
     <div className='search-resault'>
       <ul className='results'>
@@ -31,7 +24,12 @@ const SearchResault = ({ recipes, result }) => {
           </h2>
         )}
 
-        <li>{recipes && <ListItem recipes={recipes} />}</li>
+        <li>{recipes && <ListItem recipes={currentRecipes} />}</li>
+        <Pagination
+          recipesPerPage={recipesPerPage}
+          totalRecipes={result}
+          paginate={paginate}
+        />
       </ul>
 
       <Footer />
@@ -57,3 +55,21 @@ export default SearchResault
 //           </button>
 //           */}
 //       </div>
+
+// useEffect(() => {
+//   fetch(
+//     `https://forkify-api.herokuapp.com/api/v2/recipes?search=${text}`
+//   )
+//     .then((res) => {
+//       return res.json()
+//     })
+//     .then((data) => {
+//       // const { recipes } = data.data
+//       console.log(data)
+//       setResult(data.results)
+//       setRecipe(data.data.recipes)
+//     })
+//     .catch((err) => {
+//       console.log(err.message)
+//     })
+// }, [])

@@ -1,6 +1,6 @@
 import React from 'react'
 import logo from '../img/logo.png'
-import { FaEdit, FaBookmark, FaSmile } from 'react-icons/fa'
+import { FaEdit, FaStar } from 'react-icons/fa'
 import SearchRecipe from './SearchRecipe'
 
 const Header = (props) => {
@@ -22,21 +22,15 @@ const Header = (props) => {
           <li className='nav__item'>
             <button className='nav__btn nav__btn--bookmarks'>
               <div className='nav__icon'>
-                <FaBookmark />
+                <FaStar />
               </div>
-              <span>Bookmarks</span>
+              <span>Favorite</span>
             </button>
             <div className='bookmarks'>
               <ul className='bookmarks__list'>
                 <div className='message'>
-                  <div>
-                    <div>
-                      <FaSmile />
-                    </div>
-                  </div>
                   <p>
-                    No bookmarks yet. Find a nice recipe and bookmark
-                    it
+                    No Favorite yet. Find a nice recipe and mark it
                   </p>
                 </div>
               </ul>

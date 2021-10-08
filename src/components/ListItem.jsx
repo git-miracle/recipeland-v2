@@ -1,9 +1,10 @@
 import React from 'react'
 const ListItem = (props) => {
   const url = 'https://forkify-api.herokuapp.com/api/v2/recipes'
+
   return (
     <div>
-      {props.recipes.slice(2, 12).map((recipe) => (
+      {props.recipes.map((recipe) => (
         <div key={recipe.id} className='preview'>
           <a href={`${url}/${recipe.id}`} className='preview__link'>
             <figure className='preview__fig'>
