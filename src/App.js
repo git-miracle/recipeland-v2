@@ -33,7 +33,7 @@ function App() {
     <div className='container'>
       <Header searchRecipe={searchRecipe} />
       <SearchResault recipes={recipes} result={result} />
-      <RecipeView />
+      {/* <RecipeView /> */}
     </div>
   )
 }

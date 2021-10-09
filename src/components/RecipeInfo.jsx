@@ -5,7 +5,6 @@ import {
   FaRegUser,
   FaUsers,
 } from 'react-icons/fa'
-import test from '../img/test-1.jpg'
 
 const RecipeInfo = ({ recipe }) => {
   return (
@@ -51,17 +50,15 @@ const RecipeInfo = ({ recipe }) => {
 
 export default RecipeInfo
 
-{
-  /* <div className='recipe__info-buttons'>
-<button className='btn--tiny btn--increase-servings'>
-  <svg>
-    <use href='src/img/icons.svg#icon-minus-circle'></use>
-  </svg>
-</button>
-<button className='btn--tiny btn--increase-servings'>
-  <svg>
-    <use href='src/img/icons.svg#icon-plus-circle'></use>
-  </svg>
-</button>
-</div> */
-}
+//  /* <div className='recipe__info-buttons'>
+//<button className='btn--tiny btn--increase-servings'>
+//  <svg>
+//    <use href='src/img/icons.svg#icon-minus-circle'></use>
+//  </svg>
+// </button>
+// <button className='btn--tiny btn--increase-servings'>
+//   <svg>
+//     <use href='src/img/icons.svg#icon-plus-circle'></use>
+//   </svg>
+// </button>
+// </div> */

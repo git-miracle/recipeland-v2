@@ -1,23 +1,21 @@
 .preview {
-  &__link {
-    &:link,
-    &:visited {
-      display: flex;
-      align-items: center;
-      padding: 1.5rem 3.25rem;
-      transition: all 0.3s;
-      border-right: 1px solid #fff;
-      text-decoration: none;
-    }
+  &__box {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 3.25rem;
+    transition: all 0.3s;
+    border-right: 1px solid #fff;
+    text-decoration: none;
+    cursor: pointer;
+  }
 
-    &:hover {
-      background-color: $color-grey-light-1;
-      transform: translateY(-2px);
-    }
+  &:hover {
+    background-color: $color-grey-light-1;
+    transform: translateY(-2px);
+  }
 
-    &--active {
-      background-color: $color-grey-light-1;
-    }
+  &--active {
+    background-color: $color-grey-light-1;
   }
 
   &__fig {

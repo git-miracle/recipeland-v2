@@ -307,7 +307,7 @@ body {
   font-weight: 600;
 }
 
-.preview__link:link, .preview__link:visited {
+.preview__box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -319,15 +319,16 @@ body {
   transition: all 0.3s;
   border-right: 1px solid #fff;
   text-decoration: none;
+  cursor: pointer;
 }
 
-.preview__link:hover {
+.preview:hover {
   background-color: #f9f5f3;
   -webkit-transform: translateY(-2px);
           transform: translateY(-2px);
 }
 
-.preview__link--active {
+.preview--active {
   background-color: #f9f5f3;
 }
 
@@ -831,7 +832,7 @@ body {
 }
 
 .recipe__ingredients {
-  padding: 5rem 8rem;
+  padding: 5rem 5rem;
   font-size: 1.6rem;
   line-height: 1.4;
   background-color: #f2efee;
@@ -860,9 +861,6 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -884,6 +882,7 @@ body {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
+  margin-left: 5px;
 }
 
 .recipe__directions {
@@ -916,5 +915,5 @@ body {
   height: 2.2rem;
   width: 2.2rem;
   fill: #f38e82;
-  padding-right: 3px;
+  padding-right: 5px;
 }

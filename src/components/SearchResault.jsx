@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
+import RecipeView from './RecipeView'
 import Footer from './Footer'
 import ListItem from './ListItem'
 import Pagination from './Pagination'
 
 const SearchResault = ({ recipes, result }) => {
   const [currentPage, setCurrentPage] = useState(1)
-  const [recipesPerPage, setRecipesPerPage] = useState(10)
+  const [recipesPerPage] = useState(10)
+  const [id, setId] = useState('5ed6604591c37cdc054bca85')
 
   const indexOfLastRecipe = currentPage * recipesPerPage
   const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage
@@ -14,31 +16,41 @@ const SearchResault = ({ recipes, result }) => {
     indexOfLastRecipe
   )
   const paginate = (pageNumber) => setCurrentPage(pageNumber)
-  return (
-    <div className='search-resault'>
-      <ul className='results'>
-        {result && (
-          <h2 style={{ textAlign: 'center', marginBottom: '10px' }}>
-            {' '}
-            {result} resaults found.
-          </h2>
-        )}
-        {!result && (
-          <h2 style={{ textAlign: 'center', marginBottom: '10px' }}>
-            Start by searching for a recipe
-            <br /> or an ingredient. Have fun!
-          </h2>
-        )}
-        <li>{recipes && <ListItem recipes={currentRecipes} />}</li>
-        <Pagination
-          recipesPerPage={recipesPerPage}
-          totalRecipes={result}
-          paginate={paginate}
-        />
-      </ul>
+  const linkId = (digit) => setId(digit)
+  // console.log(id)
 
-      <Footer />
-    </div>
+  return (
+    <>
+      <div className='search-resault'>
+        <ul className='results'>
+          {result && (
+            <h2 style={{ textAlign: 'center', marginBottom: '10px' }}>
+              {' '}
+              {result} resaults found.
+            </h2>
+          )}
+          {!result && (
+            <h2 style={{ textAlign: 'center', marginBottom: '10px' }}>
+              Start by searching for a recipe
+              <br /> or an ingredient. Have fun!
+            </h2>
+          )}
+          <li>
+            {recipes && (
+              <ListItem linkId={linkId} recipes={currentRecipes} />
+            )}
+          </li>
+          <Pagination
+            recipesPerPage={recipesPerPage}
+            totalRecipes={result}
+            paginate={paginate}
+          />
+        </ul>
+
+        <Footer />
+      </div>
+      <RecipeView id={id} />
+    </>
   )
 }
 

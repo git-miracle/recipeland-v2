@@ -125,7 +125,7 @@
   ///////////
   // INGREDIENTS
   &__ingredients {
-    padding: 5rem 8rem;
+    padding: 5rem 5rem;
     font-size: 1.6rem;
     line-height: 1.4;
     background-color: $color-grey-light-2;
@@ -143,7 +143,6 @@
 
   &__ingredient {
     display: flex;
-    justify-content: space-evenly;
     align-items: center;
   }
 
@@ -159,6 +158,7 @@
   &__quantity {
     margin-right: 0.5rem;
     flex: 0 0 auto;
+    margin-left: 5px;
   }
 
   ///////////
@@ -186,5 +186,5 @@
   height: 2.2rem;
   width: 2.2rem;
   fill: $color-primary;
-  padding-right: 3px;
+  padding-right: 5px;
 }
