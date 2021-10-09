@@ -1,6 +1,6 @@
 import React from 'react'
 import logo from '../img/logo.png'
-import { FaEdit, FaStar } from 'react-icons/fa'
+import { FaEdit, FaRegStar } from 'react-icons/fa'
 import SearchRecipe from './SearchRecipe'
 
 const Header = (props) => {
@@ -22,7 +22,7 @@ const Header = (props) => {
           <li className='nav__item'>
             <button className='nav__btn nav__btn--bookmarks'>
               <div className='nav__icon'>
-                <FaStar />
+                <FaRegStar />
               </div>
               <span>Favorite</span>
             </button>
