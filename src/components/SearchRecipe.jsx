@@ -7,7 +7,6 @@ const SearchRecipe = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault()
-    console.log(text)
     props.searchRecipe(text)
     setText('')
   }

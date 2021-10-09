@@ -23,7 +23,12 @@ const SearchResault = ({ recipes, result }) => {
             {result} resaults found.
           </h2>
         )}
-
+        {!result && (
+          <h2 style={{ textAlign: 'center', marginBottom: '10px' }}>
+            Start by searching for a recipe
+            <br /> or an ingredient. Have fun!
+          </h2>
+        )}
         <li>{recipes && <ListItem recipes={currentRecipes} />}</li>
         <Pagination
           recipesPerPage={recipesPerPage}
@@ -38,38 +43,3 @@ const SearchResault = ({ recipes, result }) => {
 }
 
 export default SearchResault
-
-// <div className='pagination'>
-//         {/* pagination
-//           <button className="btn--inline pagination__btn--prev">
-//             <svg className="search__icon">
-//               <use href="src/img/icons.svg#icon-arrow-left"></use>
-//             </svg>
-//             <span>Page 1</span>
-//           </button>
-//           <button className="btn--inline pagination__btn--next">
-//             <span>Page 3</span>
-//             <svg className="search__icon">
-//               <use href="src/img/icons.svg#icon-arrow-right"></use>
-//             </svg>
-//           </button>
-//           */}
-//       </div>
-
-// useEffect(() => {
-//   fetch(
-//     `https://forkify-api.herokuapp.com/api/v2/recipes?search=${text}`
-//   )
-//     .then((res) => {
-//       return res.json()
-//     })
-//     .then((data) => {
-//       // const { recipes } = data.data
-//       console.log(data)
-//       setResult(data.results)
-//       setRecipe(data.data.recipes)
-//     })
-//     .catch((err) => {
-//       console.log(err.message)
-//     })
-// }, [])

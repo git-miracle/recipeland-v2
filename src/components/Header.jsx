@@ -7,8 +7,8 @@ const Header = (props) => {
   return (
     <header className='header'>
       <img src={logo} alt='Logo' className='header__logo' />
-
       <SearchRecipe searchRecipe={props.searchRecipe} />
+
       <nav className='nav'>
         <ul className='nav__list'>
           <li className='nav__item'>
@@ -30,7 +30,8 @@ const Header = (props) => {
               <ul className='bookmarks__list'>
                 <div className='message'>
                   <p>
-                    No Favorite yet. Find a nice recipe and mark it
+                    No Favorite yet.
+                    <br /> Find a nice recipe and mark it.
                   </p>
                 </div>
               </ul>
