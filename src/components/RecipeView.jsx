@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 import {
   FaCheck,
   FaChevronRight,
@@ -10,7 +11,7 @@ import RecipeInfo from './RecipeInfo'
 import RecipeIngredients from './RecipeIngredients'
 
 const RecipeView = () => {
-  const [state, setState] = useState([])
+  const [recipe, setRecipe] = useState([])
   // useEffect(() => {
   //   fetch(
   //     'https://forkify-api.herokuapp.com/api/v2/recipes/5ed6604591c37cdc054bcc4b'
@@ -27,9 +28,21 @@ const RecipeView = () => {
   //     })
   // }, [])
 
+  useEffect(() => {
+    const fetchRecipe = async () => {
+      const res = await axios.get(
+        'https://forkify-api.herokuapp.com/api/v2/recipes/5ed6604591c37cdc054bcc4b'
+      )
+      const { recipe } = res.data.data
+      setRecipe(recipe)
+      console.log(recipe)
+    }
+    fetchRecipe()
+  }, [])
+
   return (
     <div className='recipe-view'>
-      <RecipeInfo />
+      <RecipeInfo recipe={recipe} />
       <RecipeIngredients />
       <RecipeDirections />
     </div>

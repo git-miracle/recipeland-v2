@@ -7,13 +7,17 @@ import {
 } from 'react-icons/fa'
 import test from '../img/test-1.jpg'
 
-const RecipeInfo = () => {
+const RecipeInfo = ({ recipe }) => {
   return (
     <div>
       <figure className='recipe__fig'>
-        <img src={test} alt='Tomato' className='recipe__img' />
+        <img
+          src={recipe.image_url}
+          alt='Tomato'
+          className='recipe__img'
+        />
         <h1 className='recipe__title'>
-          <span>Pasta with tomato cream sauce</span>
+          <span>{recipe.title}</span>
         </h1>
       </figure>
 
@@ -21,7 +25,7 @@ const RecipeInfo = () => {
         <div className='recipe__info'>
           <FaRegClock className='recipe__info-icon' />
           <span className='recipe__info-data recipe__info-data--minutes'>
-            45
+            {recipe.cooking_time}
           </span>
           <span className='recipe__info-text'>minutes</span>
         </div>
@@ -29,7 +33,7 @@ const RecipeInfo = () => {
           <FaUsers className='recipe__info-icon' />
 
           <span className='recipe__info-data recipe__info-data--people'>
-            4
+            {recipe.servings}
           </span>
           <span className='recipe__info-text'>servings</span>
         </div>

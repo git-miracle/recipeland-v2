@@ -13,7 +13,7 @@ const RecipeDirections = () => {
         </p>
         <a
           className='btn--small recipe__btn'
-          href='http://thepioneerwoman.com/cooking/pasta-with-tomato-cream-sauce/'
+          href='/'
           target='_blank'
         >
           <span>Directions</span>
