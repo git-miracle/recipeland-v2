@@ -1,5 +1,9 @@
 import React from 'react'
 import {
+  FaBlender,
+  FaClipboardCheck,
+  FaClipboardList,
+  FaGlobe,
   FaRegClock,
   FaRegStar,
   FaRegUser,
@@ -8,11 +12,11 @@ import {
 
 const RecipeInfo = ({ recipe }) => {
   return (
-    <div>
+    <div className='recipe__top'>
       <figure className='recipe__fig'>
         <img
-          src={recipe.image_url}
-          alt='Tomato'
+          src={recipe.image}
+          alt={recipe.title}
           className='recipe__img'
         />
         <h1 className='recipe__title'>
@@ -22,9 +26,31 @@ const RecipeInfo = ({ recipe }) => {
 
       <div className='recipe__details'>
         <div className='recipe__info'>
+          <FaClipboardCheck className='recipe__info-icon' />
+          <span className='recipe__info-data recipe__info-data--minutes'>
+            {recipe.sourceName}
+          </span>
+        </div>
+        {recipe.cuisines === [] ? (
+          <div className='recipe__info'>
+            <FaGlobe className='recipe__info-icon' />
+            <div className='recipe__info-data '>
+              {recipe.cuisines[0]}
+            </div>
+          </div>
+        ) : (
+          ''
+        )}
+        <div className='recipe__info'>
+          <FaBlender className='recipe__info-icon' />
+          <span className='recipe__info-data recipe__info-data--minutes'>
+            {recipe.dishTypes}
+          </span>
+        </div>
+        <div className='recipe__info'>
           <FaRegClock className='recipe__info-icon' />
           <span className='recipe__info-data recipe__info-data--minutes'>
-            {recipe.cooking_time}
+            {recipe.readyInMinutes}
           </span>
           <span className='recipe__info-text'>minutes</span>
         </div>
@@ -36,29 +62,14 @@ const RecipeInfo = ({ recipe }) => {
           </span>
           <span className='recipe__info-text'>servings</span>
         </div>
-
-        <div className='recipe__user-generated'>
-          <FaRegUser />
+        <div className='recipe__favorite'>
+          <button className='btn--round'>
+            <FaRegStar />
+          </button>
         </div>
-        <button className='btn--round'>
-          <FaRegStar />
-        </button>
       </div>
     </div>
   )
 }
 
 export default RecipeInfo
-
-//  /* <div className='recipe__info-buttons'>
-//<button className='btn--tiny btn--increase-servings'>
-//  <svg>
-//    <use href='src/img/icons.svg#icon-minus-circle'></use>
-//  </svg>
-// </button>
-// <button className='btn--tiny btn--increase-servings'>
-//   <svg>
-//     <use href='src/img/icons.svg#icon-plus-circle'></use>
-//   </svg>
-// </button>
-// </div> */

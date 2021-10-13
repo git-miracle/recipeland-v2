@@ -1,39 +1,46 @@
-import { useState } from 'react'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 import Header from './components/Header'
-import RecipeView from './components/RecipeView'
 import SearchResault from './components/SearchResault'
-
-// https://forkify-api.herokuapp.com/v2
+import Spinner from './components/Spinner'
 
 function App() {
   const [recipes, setRecipe] = useState([])
-  const [result, setResult] = useState('')
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
 
-  const searchRecipe = (text) => {
-    // setIsLoading(true)
-    console.log(text)
-    fetch(
-      `https://forkify-api.herokuapp.com/api/v2/recipes?search=${text}`
-    )
-      .then((res) => {
-        return res.json()
-      })
-      .then((data) => {
-        console.log(data)
-        setResult(data.results)
-        setRecipe(data.data.recipes)
-      })
-      .catch((err) => {
-        console.log(err.message)
-      })
-    //  setIsLoading(false);
+  const app_key = '1e63f927fe484e5792a61e8cfd281794'
+  const URL = 'https://api.spoonacular.com/recipes/complexSearch'
+
+  const searchRecipe = async (text) => {
+    try {
+      setLoading(true)
+      const res = await axios.get(
+        `${URL}?apiKey=${app_key}&query=${text}&number=100`
+      )
+
+      setRecipe(res.data.results)
+      console.log(res.data.results)
+
+      setLoading(false)
+    } catch (err) {
+      setLoading(false)
+      setError(err.message)
+    }
   }
-
   return (
     <div className='container'>
       <Header searchRecipe={searchRecipe} />
-      <SearchResault recipes={recipes} result={result} />
-      {/* <RecipeView /> */}
+
+      {loading ? (
+        <Spinner />
+      ) : (
+        <SearchResault
+          error={error}
+          recipes={recipes}
+          loading={loading}
+        />
+      )}
     </div>
   )
 }

@@ -18,15 +18,15 @@
 
 //
 .pg-container {
-  padding: 15px;
+  padding: 0px;
 }
 .pagination {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 0px;
   font-size: 20px;
   border-top: 1px solid rgba(128, 128, 128, 0.342);
-  padding: 5px;
+  padding: 15px;
   li {
     list-style: none;
     &:not(:last-child) {
@@ -56,4 +56,8 @@
   .twitter-link:visited {
     color: $color-grey-dark-2;
   }
+}
+
+.footer {
+  text-align: center;
 }

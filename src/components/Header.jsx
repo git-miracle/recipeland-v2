@@ -1,6 +1,6 @@
 import React from 'react'
 import logo from '../img/logo.png'
-import { FaEdit, FaRegStar } from 'react-icons/fa'
+import { FaRegStar } from 'react-icons/fa'
 import SearchRecipe from './SearchRecipe'
 
 const Header = (props) => {
@@ -11,14 +11,14 @@ const Header = (props) => {
 
       <nav className='nav'>
         <ul className='nav__list'>
-          <li className='nav__item'>
+          {/* <li className='nav__item'>
             <button className='nav__btn nav__btn--add-recipe'>
               <div className='nav__icon'>
                 <FaEdit />
               </div>
               <span>Add recipe</span>
             </button>
-          </li>
+          </li> */}
           <li className='nav__item'>
             <button className='nav__btn nav__btn--bookmarks'>
               <div className='nav__icon'>

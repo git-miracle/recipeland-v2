@@ -2,27 +2,25 @@
   &__box {
     display: flex;
     align-items: center;
-    padding: 1.5rem 3.25rem;
+    padding: 0.5rem 1.25rem;
     transition: all 0.3s;
-    border-right: 1px solid #fff;
+
     text-decoration: none;
     cursor: pointer;
   }
 
   &:hover {
     background-color: $color-grey-light-1;
+    border-left: 5px solid $color-primary;
     transform: translateY(-2px);
   }
 
-  &--active {
-    background-color: $color-grey-light-1;
-  }
-
   &__fig {
-    flex: 0 0 5.8rem;
-    border-radius: 50%;
+    // flex: 0 0 5.8rem;
+    // flex: 1;
+    border-radius: 15px;
     overflow: hidden;
-    height: 5.8rem;
+    height: 7.8rem;
     margin-right: 2rem;
     position: relative;
     backface-visibility: hidden;
@@ -40,7 +38,7 @@
         $color-grad-1,
         $color-grad-2
       );
-      opacity: 0.4;
+      opacity: 0.2;
     }
 
     img {

@@ -11,13 +11,13 @@ const RecipeIngredients = ({ ingredients }) => {
             <li key={index} className='recipe__ingredient'>
               <FaCheck className='ing-icon' />
               <div className='recipe__quantity'>
-                {ingredient.quantity}
+                {ingredient.amount}
                 <span className='recipe__unit'>
                   {ingredient.unit}{' '}
                 </span>
               </div>
               <div className='recipe__description'>
-                {ingredient.description}
+                {ingredient.originalName}
               </div>
             </li>
           ))}
